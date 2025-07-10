@@ -3,21 +3,15 @@ import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import { livrosRoutes } from './livros';
 
-const fastify = Fastify();
+const app = Fastify();
 
-fastify.register(cors, {
+app.register(cors, {
   origin: '*', // Libera para qualquer origem (ajuste se necessário)
 });
 
-fastify.register(livrosRoutes);
+app.register(livrosRoutes);
 
-fastify.listen({ port: 3000 }, (err, address) => {
-  if (err) {
-    console.error(err);
-    process.exit(1);
-  }
-  console.log(`Servidor rodando em: ${address}`);
-});
+
 /* GET /livros (com filtro ?titulo=) */
 app.get('/livros', async (req, reply) => {
   try {
