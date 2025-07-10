@@ -1,23 +1,17 @@
+// backend/index.ts
 import Fastify from 'fastify';
-import fastifyMysql from '@fastify/mysql';
-import livroRoutes from './livro.routes'; // ajuste o caminho se necessário
+import cors from '@fastify/cors';
+import { livrosRoutes } from './livros';
 
-const app = Fastify();
+const fastify = Fastify();
 
-// Conectando ao banco de dados
-app.register(fastifyMysql, {
-  promise: true,
-  host: 'localhost',
-  user: 'seu_usuario',
-  password: 'sua_senha',
-  database: 'nome_do_banco',
+fastify.register(cors, {
+  origin: '*', // Libera para qualquer origem (ajuste se necessário)
 });
 
-// Registrando as rotas
-app.register(livroRoutes);
+fastify.register(livrosRoutes);
 
-// Iniciando o servidor
-app.listen({ port: 3000 }, (err, address) => {
+fastify.listen({ port: 3000 }, (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);
