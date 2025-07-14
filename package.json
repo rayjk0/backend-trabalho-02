@@ -2,7 +2,7 @@
   "name": "livraria-backend",
   "type": "module",
   "scripts": {
-    "dev": "node index.ts"
+    "dev": "ts-node index.ts"
   },
   "dependencies": {
     "@fastify/cors": "^8.5.0",
