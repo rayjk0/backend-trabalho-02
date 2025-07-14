@@ -1,6 +1,16 @@
 import { FastifyInstance } from 'fastify';
 import { db } from './db';
+import { RowDataPacket } from 'mysql2';
 
+interface Livro extends RowDataPacket {
+  id: number;
+  titulo: string;
+  autor: string;
+  ano: number;
+  genero: string;
+  preco: number;
+  imagem: string;
+}
 export async function livrosRoutes(fastify: FastifyInstance) {
   fastify.get('/livros', async () => {
     const [rows] = await db.query('SELECT * FROM livros');
