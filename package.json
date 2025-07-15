@@ -2,15 +2,16 @@
   "name": "livraria-backend",
   "type": "module",
   "scripts": {
-    "dev": "ts-node index.ts"
+    "dev": "ts-node src/index.ts"
   },
   "dependencies": {
-    "@fastify/cors": "^8.5.0",
-    "fastify": "^4.29.0",
-    "mysql2": "^3.9.8"
+    "fastify": "^4.x.x",
+    "@fastify/cors": "^8.x.x",
+    "mysql2": "^3.x.x"
   },
   "devDependencies": {
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "ts-node": "^10.x.x",
+    "typescript": "^5.x.x",
+    "@types/node": "^20.x.x"
   }
 }

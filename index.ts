@@ -6,7 +6,7 @@ const app = Fastify();
 
 
 app.register(cors, {
-  origin: '*', 
+  origin: 'http://localhost:5173'
 });
 
 
